@@ -7,16 +7,6 @@ import { InputFloat } from '../../components/Inputfloat/styles';
 import GetCep from '../../services/cep';
 
 
-
-
-
-        const cepResp = (async () => {
-            const data = await GetCep('79814460', 'json');
-            console.log(data)
-          })()
-
-console.log(cepResp);
-
 const SaleForm: React.FC = () => {
 
 
@@ -64,7 +54,7 @@ const SaleForm: React.FC = () => {
             </div>
             <div>
                 <InputFloat>
-                    <input required type="text" placeholder=" "/>
+                    <input required onBlur={() => GetCep(this.value, 'json')} type="text" placeholder=" "/>
                     <label>Cep</label>
                 </InputFloat>
                 <InputFloat>
